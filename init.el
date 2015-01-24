@@ -19,12 +19,12 @@
     (let ((name (getf package :name))
           (repo (getf package :repo)))
       (add-to-list 'package-pinned-packages '(name . repo))))
-  
+
   (dolist (package my-packages-recipes)
     (let ((before (getf package :before)))
       (if before
           (eval before))))
-  
+
   (let ((need-to-refresh t))
     (dolist (package packages-list)
       (unless (package-installed-p package)
@@ -48,8 +48,11 @@
 (load (expand-file-name "package-recipes.el"
                         (file-name-directory load-file-name)))
 
+;;Load your config files here
+(let ((init-dir (file-name-directory load-file-name)))
+  (load (expand-file-name "config.el" init-dir)))
+
 ;;install packages in my-packages-lists
-(remove-duplicates my-packages-list)
+(cl-remove-duplicates my-packages-list)
 (install-my-packages my-packages-list)
 (run-hooks 'after-my-packages-init-hook)
-
