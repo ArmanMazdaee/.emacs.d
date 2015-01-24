@@ -21,3 +21,13 @@
 
 (delete-selection-mode t)
 (global-visual-line-mode t)
+
+;;indent after yanking code
+(let ((indet (lambda (&optional ARG)
+               (indent-region
+                (save-excursion
+                  (goto-char (mark))
+                  (line-beginning-position))
+                (point)))))
+  (advice-add 'yank :after indet)
+  (advice-add 'yank-pop :after indet))
