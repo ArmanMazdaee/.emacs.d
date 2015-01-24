@@ -31,3 +31,13 @@
                 (point)))))
   (advice-add 'yank :after indet)
   (advice-add 'yank-pop :after indet))
+
+;;duplicate line
+(defun duplicate-line ()
+  "Duplicate current line and move point to end of it"
+  (interactive)
+  (let ((start (line-beginning-position))
+        (end (line-end-position)))
+    (end-of-line)
+    (insert "\n" (buffer-substring start end))))
+(global-set-key (kbd "M-l") 'duplicate-line)
