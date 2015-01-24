@@ -33,3 +33,9 @@
 (add-hook 'after-my-packages-init-hook
           (lambda ()
             (global-set-key (kbd "M-x") 'smex)))
+
+;; ;;Offer a *visual* way to choose a window to switch to
+(add-to-list 'my-packages-list 'switch-window)
+(add-hook 'after-my-packages-init-hook
+          (lambda ()
+            (global-set-key (kbd "C-x o") 'switch-window)))
