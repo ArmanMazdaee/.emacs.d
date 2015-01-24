@@ -50,7 +50,8 @@
 
 ;;Load your config files here
 (let ((init-dir (file-name-directory load-file-name)))
-  (load (expand-file-name "config.el" init-dir)))
+  (load (expand-file-name "config.el" init-dir))
+  (load (expand-file-name "gui-config.el" init-dir)))
 
 ;;install packages in my-packages-lists
 (cl-remove-duplicates my-packages-list)
