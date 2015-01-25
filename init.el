@@ -53,6 +53,7 @@
   (load (expand-file-name "config.el" init-dir))
   (load (expand-file-name "gui-config.el" init-dir))
   (load (expand-file-name "global-packages.el" init-dir))
+  (load (expand-file-name "web.el" init-dir))
   (load (expand-file-name "go.el" init-dir)))
 
 ;;install packages in my-packages-lists
