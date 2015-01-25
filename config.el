@@ -41,3 +41,19 @@
     (end-of-line)
     (insert "\n" (buffer-substring start end))))
 (global-set-key (kbd "M-l") 'duplicate-line)
+
+;;package-install will install package from melpa-stable if available
+;;of install from gnu if available
+(unless package-archive-contents
+  (package-refresh-contents))
+(dolist (descs package-archive-contents)
+  (let* ((archives (cl-mapcar
+                    'package-desc-archive
+                    (cdr descs)))
+         (prefer-archive (cl-find-if
+                          (lambda (p)
+                            (member p archives))
+                          '("melpa-stable" "gnu"))))
+    (when prefer-archive
+      (add-to-list 'package-pinned-packages
+                   (cons (cl-first descs) prefer-archive)))))
