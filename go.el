@@ -20,7 +20,7 @@
                                :warning "*Go warnings*"))))
 
 ;;check if godef is install and if it is, use M-. for godef-jump
-(if (executable-find "goimports")
+(if (executable-find "godef")
     (add-hook 'go-mode-hook
               (lambda ()
                 (local-set-key (kbd "M-.") 'godef-jump)))
@@ -32,6 +32,20 @@
                                            "go get code.google.com/p/rog-go/exp/cmd/godef"
                                            "and restart your emacs")
                                :warning "*Go warnings*"))))
+
+;; ;;check if oracle is install
+;; (if (executable-find "oracle")
+;;     (progn
+;;       (load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
+;;       (add-hook 'go-mode-hook 'go-oracle-mode))
+;;   (add-hook 'go-mode-hook
+;;             (lambda ()
+;;               (display-warning 'Go (format "%s\n%s\n%s\n%s\n"
+;;                                            "oracle is not in your path"
+;;                                            "Please install it with:"
+;;                                            "go get golang.org/x/tools/cmd/oracle"
+;;                                            "and restart your emacs")
+;;                                :warning "*Go warnings*"))))
 
 ;;check if gocode is install and if it is, install go-eldoc and go-autocomplete
 (if (executable-find "gocode")
