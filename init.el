@@ -16,12 +16,12 @@
 (defun install-my-packages (packages-list)
   "Get a list of packages and install them"
   (dolist (package my-packages-recipes)
-    (let ((name (getf package :name))
-          (repo (getf package :repo)))
+    (let ((name (cl-getf package :name))
+          (repo (cl-getf package :repo)))
       (add-to-list 'package-pinned-packages '(name . repo))))
 
   (dolist (package my-packages-recipes)
-    (let ((before (getf package :before)))
+    (let ((before (cl-getf package :before)))
       (if before
           (eval before))))
 
@@ -37,12 +37,13 @@
         (package-install package))))
 
   (dolist (package my-packages-recipes)
-    (let ((name (getf package :name))
-          (after (getf package :after)))
+    (let ((name (cl-getf package :name))
+          (after (cl-getf package :after)))
       (if (and
            after
            (package-installed-p name))
-          (eval after)))))
+          (eval after)
+        (message "%S" package)))))
 
 ;;Load personal recipes for packages
 (load (expand-file-name "package-recipes.el"
