@@ -55,6 +55,7 @@
   (load (expand-file-name "gui-config" init-dir))
   (load (expand-file-name "global-packages" init-dir))
   (load (expand-file-name "web" init-dir))
+  (load (expand-file-name "javascript" init-dir))
   (load (expand-file-name "go" init-dir)))
 
 ;;install packages in my-packages-lists
