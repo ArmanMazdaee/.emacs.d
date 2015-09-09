@@ -1,5 +1,4 @@
-ido
-smex-items
-auto-save-list/
-elpa/
-ac-comphist.dat
+*
+!init.el
+!config/
+!config/*
