@@ -1,4 +1,6 @@
-*
-!init.el
-!config/
-!config/*
+/*
+!/.gitignore
+!/init.el
+!/inits/
+!/libs/
+!/package-configs/
