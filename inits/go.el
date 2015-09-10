@@ -1,4 +1,4 @@
-(add-to-list 'my-packages-list 'go-mode)
+(require-package 'go-mode)
 
 ;;run gofmt before saving file
 (add-hook 'go-mode-hook
@@ -50,10 +50,10 @@
 ;;check if gocode is install and if it is, install go-eldoc and go-autocomplete
 (if (executable-find "gocode")
     (progn
-      (add-to-list 'my-packages-list 'go-eldoc)
+      (require-package 'go-eldoc)
       (add-hook 'go-mode-hook 'go-eldoc-setup)
 
-      (add-to-list 'my-packages-list 'go-autocomplete)
+      (require-package 'go-autocomplete)
       (add-hook 'after-my-packages-init-hook
                 (lambda ()
                   (require 'auto-complete-config)
@@ -69,5 +69,5 @@
                                :warning "*Go warnings*"))))
 
 ;;Add flycheck
-(add-to-list 'my-packages-list 'flycheck)
+(require-package 'flycheck)
 (add-hook 'go-mode-hook 'flycheck-mode)

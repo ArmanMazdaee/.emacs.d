@@ -6,7 +6,7 @@
 (set-frame-font "Inconsolata-14")
 
 ;;install and enable sanityinc-tomorrow theme
-(add-to-list 'my-packages-list 'color-theme-sanityinc-tomorrow)
+(require-package 'color-theme-sanityinc-tomorrow)
 (add-hook 'after-my-packages-init-hook
           (lambda ()
             (load-theme 'sanityinc-tomorrow-night t)))

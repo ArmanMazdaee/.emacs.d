@@ -1,4 +1,4 @@
-(add-to-list 'my-packages-list 'web-mode)
+(require-package 'web-mode)
 (add-hook 'after-my-packages-init-hook
           (lambda ()
             (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -11,7 +11,7 @@
             (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
             (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))))
 
-(add-to-list 'my-packages-list 'emmet-mode)
+(require-package 'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode)
 (add-hook 'web-mode-hook 'emmet-mode)

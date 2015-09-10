@@ -1,5 +1,5 @@
 ;;Install js2 mode and use it as major mode
-(add-to-list 'my-packages-list 'js2-mode)
+(require-package 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 ;; (add-hook 'js-mode-hook 'js2-minor-mode)
 
@@ -29,5 +29,5 @@
                                :warning "*javascript warnings*"))))
 
 ;;Install skewer-mode for js
-(add-to-list 'my-packages-list 'skewer-mode)
+(require-package 'skewer-mode)
 (add-hook 'js2-mode-hook 'skewer-mode)
