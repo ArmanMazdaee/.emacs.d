@@ -17,3 +17,5 @@
     (unless (package-installed-p package)
       (message "Installing %S" package)
       (package-install package))))
+
+(provide 'require-package)

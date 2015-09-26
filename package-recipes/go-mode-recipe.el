@@ -1,3 +1,6 @@
+;;Install go-mode for go development
+(require 'require-package)
+
 (require-package 'go-mode)
 
 ;;run gofmt before saving file
@@ -33,41 +36,29 @@
                                            "and restart your emacs")
                                :warning "*Go warnings*"))))
 
-;; ;;check if oracle is install
-;; (if (executable-find "oracle")
+;;check if gocode is install and if it is, install go-eldoc and go-autocomplete
+;; (if (executable-find "gocode")
 ;;     (progn
-;;       (load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
-;;       (add-hook 'go-mode-hook 'go-oracle-mode))
+;;       (require-package 'go-eldoc)
+;;       (add-hook 'go-mode-hook 'go-eldoc-setup)
+
+;;       (require-package 'go-autocomplete)
+;;       (add-hook 'after-my-packages-init-hook
+;;                 (lambda ()
+;;                   (require 'auto-complete-config)
+;;                   (require 'go-autocomplete)))
+;;       (add-hook 'go-mode-hook 'auto-complete-mode))
 ;;   (add-hook 'go-mode-hook
 ;;             (lambda ()
 ;;               (display-warning 'Go (format "%s\n%s\n%s\n%s\n"
-;;                                            "oracle is not in your path"
+;;                                            "gocode is not in your path and you need it for el-doc and autocomplete"
 ;;                                            "Please install it with:"
-;;                                            "go get golang.org/x/tools/cmd/oracle"
+;;                                            "go get github.com/nsf/gocode"
 ;;                                            "and restart your emacs")
 ;;                                :warning "*Go warnings*"))))
 
-;;check if gocode is install and if it is, install go-eldoc and go-autocomplete
-(if (executable-find "gocode")
-    (progn
-      (require-package 'go-eldoc)
-      (add-hook 'go-mode-hook 'go-eldoc-setup)
-
-      (require-package 'go-autocomplete)
-      (add-hook 'after-my-packages-init-hook
-                (lambda ()
-                  (require 'auto-complete-config)
-                  (require 'go-autocomplete)))
-      (add-hook 'go-mode-hook 'auto-complete-mode))
-  (add-hook 'go-mode-hook
-            (lambda ()
-              (display-warning 'Go (format "%s\n%s\n%s\n%s\n"
-                                           "gocode is not in your path and you need it for el-doc and autocomplete"
-                                           "Please install it with:"
-                                           "go get github.com/nsf/gocode"
-                                           "and restart your emacs")
-                               :warning "*Go warnings*"))))
-
 ;;Add flycheck
-(require-package 'flycheck)
+(require 'flycheck-recipe)
 (add-hook 'go-mode-hook 'flycheck-mode)
+
+(provide 'go-mode-recipe)

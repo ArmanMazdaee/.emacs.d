@@ -1,28 +1,34 @@
-;;disable backup and
+;;Global-init contain some global configs and requiring
+;;global package recipes
+
+;;Disable backup and auto-saves
 (setq backup-inhibited t)
 (setq auto-save-default nil)
 
-;;enter just y-or-n insted of yes-or-no
+;;Enter just y-or-n insted of yes-or-no
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;;set default tab setting
+;;Set default tab setting
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 
-;;show line and column numbers in mode line
+;;Show line and column numbers in mode line
 (line-number-mode 1)
 (column-number-mode 1)
 
-;;delete all whitespaces at the end of a file before save file
+;;Delete all whitespaces at the end of a file before save file
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;;highlight current line
+;;Highlight current line
 (global-hl-line-mode)
 
+;;Replace region with input
 (delete-selection-mode t)
+
+;;Provides support for editing by visual lines.
 (global-visual-line-mode t)
 
-;;indent after yanking code
+;;Indent region after yanking code
 (let ((indet (lambda (&optional ARG)
                (indent-region
                 (save-excursion
@@ -42,18 +48,19 @@
     (insert "\n" (buffer-substring start end))))
 (global-set-key (kbd "M-l") 'duplicate-line)
 
-;;package-install will install package from melpa-stable if available
-;;of install from gnu if available
-(unless package-archive-contents
-  (package-refresh-contents))
-(dolist (descs package-archive-contents)
-  (let* ((archives (cl-mapcar
-                    'package-desc-archive
-                    (cdr descs)))
-         (prefer-archive (cl-find-if
-                          (lambda (p)
-                            (member p archives))
-                          '("melpa-stable" "gnu"))))
-    (when prefer-archive
-      (add-to-list 'package-pinned-packages
-                   (cons (cl-first descs) prefer-archive)))))
+;;increase selected region by semantic units.
+(require 'expand-region-recipe)
+
+;;enabling fast/direct cursor movement in current view
+(require 'ace-jump-mode-recipe)
+
+;;a front end, or “porcelain” for the Git version control system
+(require 'magit-recipe)
+
+;;ido-mode
+(require 'ido-mode-recipe)
+
+;;Offer a *visual* way to choose a window to switch to
+(require 'switch-window-recipe)
+
+(provide 'global-init)
