@@ -36,26 +36,26 @@
                                            "and restart your emacs")
                                :warning "*Go warnings*"))))
 
-;;check if gocode is install and if it is, install go-eldoc and go-autocomplete
-;; (if (executable-find "gocode")
-;;     (progn
-;;       (require-package 'go-eldoc)
-;;       (add-hook 'go-mode-hook 'go-eldoc-setup)
+;;check if gocode is install and if it is, install go-eldoc and company-go
+(if (executable-find "gocode")
+    (progn
+      (require-package 'go-eldoc)
+      (add-hook 'go-mode-hook 'go-eldoc-setup)
 
-;;       (require-package 'go-autocomplete)
-;;       (add-hook 'after-my-packages-init-hook
-;;                 (lambda ()
-;;                   (require 'auto-complete-config)
-;;                   (require 'go-autocomplete)))
-;;       (add-hook 'go-mode-hook 'auto-complete-mode))
-;;   (add-hook 'go-mode-hook
-;;             (lambda ()
-;;               (display-warning 'Go (format "%s\n%s\n%s\n%s\n"
-;;                                            "gocode is not in your path and you need it for el-doc and autocomplete"
-;;                                            "Please install it with:"
-;;                                            "go get github.com/nsf/gocode"
-;;                                            "and restart your emacs")
-;;                                :warning "*Go warnings*"))))
+      (require 'company-mode-recipe)
+      (require-package 'company-go)
+      (add-hook 'go-mode-hook
+                (lambda ()
+                  (set (make-local-variable 'company-backends) '(company-go))
+                  (company-mode t))))
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (display-warning 'Go (format "%s\n%s\n%s\n%s\n"
+                                           "gocode is not in your path and you need it for el-doc and autocomplete"
+                                           "Please install it with:"
+                                           "go get github.com/nsf/gocode"
+                                           "and restart your emacs")
+                               :warning "*Go warnings*"))))
 
 ;;Add flycheck
 (require 'flycheck-recipe)
