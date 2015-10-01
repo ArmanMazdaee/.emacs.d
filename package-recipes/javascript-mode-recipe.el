@@ -33,7 +33,7 @@
 (if (executable-find "tern")
     (progn
       (require 'company-mode-recipe)
-      (require-package 'tern)
+      (require 'tern-mode-recipe)
       (require-package 'company-tern)
       (add-hook 'js2-mode-hook
                 (lambda ()
