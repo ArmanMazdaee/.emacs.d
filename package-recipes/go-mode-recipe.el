@@ -36,6 +36,11 @@
                                            "and restart your emacs")
                                :warning "*Go warnings*"))))
 
+
+;;Add yasnippet
+(require 'yasnippet-recipe)
+(add-hook 'go-mode-hook 'yas-minor-mode)
+
 ;;check if gocode is install and if it is, install go-eldoc and company-go
 (if (executable-find "gocode")
     (progn

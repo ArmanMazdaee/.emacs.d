@@ -10,6 +10,9 @@
 ;;set indent width to 2
 (setq js2-basic-offset 2)
 
+;;Add yasnippet
+(require 'yasnippet-recipe)
+(add-hook 'js2-mode-hook 'yas-minor-mode)
 
 ;;Add flycheck if jshint is installed for linting code
 (if (executable-find "jshint")
