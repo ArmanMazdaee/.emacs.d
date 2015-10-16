@@ -60,7 +60,8 @@
 ;;ido-mode
 (require 'ido-mode-recipe)
 
-;;Offer a *visual* way to choose a window to switch to
-(require 'switch-window-recipe)
+;;Quickly switch windows in Emacs
+(require 'ace-window-recipe)
+
 
 (provide 'global-init)
