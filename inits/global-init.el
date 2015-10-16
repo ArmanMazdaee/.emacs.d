@@ -51,8 +51,8 @@
 ;;increase selected region by semantic units.
 (require 'expand-region-recipe)
 
-;;enabling fast/direct cursor movement in current view
-(require 'ace-jump-mode-recipe)
+;;Jump to things in Emacs tree-style
+(require 'avy-recipe)
 
 ;;a front end, or “porcelain” for the Git version control system
 (require 'magit-recipe)
