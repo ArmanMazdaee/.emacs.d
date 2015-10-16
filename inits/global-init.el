@@ -64,4 +64,7 @@
 (require 'ace-window-recipe)
 
 
+;;Undo”(and “redo”) changes in the window configuration with the key commands
+(require 'winner-mode-recipe)
+
 (provide 'global-init)
