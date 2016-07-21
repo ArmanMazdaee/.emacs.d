@@ -69,4 +69,7 @@
 ;;Global auto revert mode to automaticly update changed files
 (require 'auto-revert-mode-recipe)
 
+;;Global minor mode for entering Emacs commands without modifier keys
+(require 'god-mode-recipe)
+
 (provide 'global-init)
