@@ -14,6 +14,7 @@
 (require 'web-mode-recipe)
 (require 'javascript-mode-recipe)
 (require 'go-mode-recipe)
+(require 'scala-mode-recipe)
 
 ;;Install required packages
 (require 'require-package)
