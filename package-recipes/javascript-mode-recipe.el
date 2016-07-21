@@ -33,23 +33,23 @@
 (add-hook 'js2-mode-hook 'skewer-mode)
 
 ;;Check if torn is install and if it is, install company-tern
-(if (executable-find "tern")
-    (progn
-      (require 'company-mode-recipe)
-      (require 'tern-mode-recipe)
-      (require-package 'company-tern)
-      (add-hook 'js2-mode-hook
-                (lambda ()
-                  (set (make-local-variable 'company-backends) '(company-tern))
-                  (company-mode t)
-                  (tern-mode t))))
-  (add-hook 'js2-mode-hook
-            (lambda ()
-              (display-warning 'javascript (format "%s\n%s\n%s\n%s\n"
-                                           "tern is not in your path and you need it for autocomplete"
-                                           "Please install it with:"
-                                           "npm install -g tern"
-                                           "and restart your emacs")
-                               :warning "*javascript warnings*"))))
+;; (if (executable-find "tern")
+;;     (progn
+;;       (require 'company-mode-recipe)
+;;       (require 'tern-mode-recipe)
+;;       (require-package 'company-tern)
+;;       (add-hook 'js2-mode-hook
+;;                 (lambda ()
+;;                   (set (make-local-variable 'company-backends) '(company-tern))
+;;                   (company-mode t)
+;;                   (tern-mode t))))
+;;   (add-hook 'js2-mode-hook
+;;             (lambda ()
+;;               (display-warning 'javascript (format "%s\n%s\n%s\n%s\n"
+;;                                            "tern is not in your path and you need it for autocomplete"
+;;                                            "Please install it with:"
+;;                                            "npm install -g tern"
+;;                                            "and restart your emacs")
+;;                                :warning "*javascript warnings*"))))
 
 (provide 'javascript-mode-recipe)
