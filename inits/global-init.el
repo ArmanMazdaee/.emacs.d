@@ -63,8 +63,10 @@
 ;;Quickly switch windows in Emacs
 (require 'ace-window-recipe)
 
-
 ;;Undo”(and “redo”) changes in the window configuration with the key commands
 (require 'winner-mode-recipe)
+
+;;Global auto revert mode to automaticly update changed files
+(require 'auto-revert-mode-recipe)
 
 (provide 'global-init)
