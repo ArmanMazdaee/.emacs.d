@@ -3,8 +3,8 @@
 
 (require-package 'yasnippet)
 
-(eval-after-load "yasnippet"
-  (lambda ()
-    (yas-reload-all)))
+(add-hook 'after-init-hook
+          (lambda ()
+            (yas-global-mode 1)))
 
 (provide 'yasnippet-recipe)

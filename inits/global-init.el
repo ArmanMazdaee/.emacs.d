@@ -72,4 +72,10 @@
 ;;Global minor mode for entering Emacs commands without modifier keys
 (require 'god-mode-recipe)
 
+;;Add autocomplete support for emacs
+(require 'company-mode-recipe)
+
+;;A template system for Emacs
+(require 'yasnippet-recipe)
+
 (provide 'global-init)

@@ -36,23 +36,16 @@
                                            "and restart your emacs")
                                :warning "*Go warnings*"))))
 
-
-;;Add yasnippet
-(require 'yasnippet-recipe)
-(add-hook 'go-mode-hook 'yas-minor-mode)
-
 ;;check if gocode is install and if it is, install go-eldoc and company-go
 (if (executable-find "gocode")
     (progn
       (require-package 'go-eldoc)
       (add-hook 'go-mode-hook 'go-eldoc-setup)
 
-      (require 'company-mode-recipe)
       (require-package 'company-go)
       (add-hook 'go-mode-hook
                 (lambda ()
-                  (set (make-local-variable 'company-backends) '(company-go))
-                  (company-mode t))))
+                  (set (make-local-variable 'company-backends) '(company-go)))))
   (add-hook 'go-mode-hook
             (lambda ()
               (display-warning 'Go (format "%s\n%s\n%s\n%s\n"
