@@ -78,4 +78,7 @@
 ;;A template system for Emacs
 (require 'yasnippet-recipe)
 
+;;Elscreen
+(require 'elscreen-recipe)
+
 (provide 'global-init)
