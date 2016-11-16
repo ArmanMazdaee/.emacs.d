@@ -12,6 +12,7 @@
 
 ;;Load major mode recipe files
 (require 'web-mode-recipe)
+(require 'css-mode-recipe)
 (require 'javascript-mode-recipe)
 (require 'go-mode-recipe)
 (require 'scala-mode-recipe)
