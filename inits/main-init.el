@@ -18,6 +18,7 @@
 (require 'javascript-mode-recipe)
 (require 'go-mode-recipe)
 (require 'scala-mode-recipe)
+(require 'python-mode-recipe)
 
 ;;Install required packages
 (require 'require-package)
