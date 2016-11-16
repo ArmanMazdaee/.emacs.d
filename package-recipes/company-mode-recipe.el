@@ -10,10 +10,10 @@
         (mark-active
          (indent-region (region-beginning)
                         (region-end)))
-        ((looking-at "\\_>")
-         (company-complete-common))
+        ((looking-back "^\\s-*")
+         (indent-for-tab-command))
         (t
-         (indent-for-tab-command))))
+         (company-complete-common))))
 
 
 (setq company-idle-delay nil)
