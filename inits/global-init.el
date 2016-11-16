@@ -5,6 +5,9 @@
 (setq backup-inhibited t)
 (setq auto-save-default nil)
 
+;;disable lock files
+(setq create-lockfiles nil)
+
 ;;Enter just y-or-n insted of yes-or-no
 (fset 'yes-or-no-p 'y-or-n-p)
 
