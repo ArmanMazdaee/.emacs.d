@@ -14,6 +14,7 @@
 ;; (require 'html-mode-recipe)
 (require 'web-mode-recipe)
 (require 'css-mode-recipe)
+(require 'scss-mode-recipe)
 (require 'javascript-mode-recipe)
 (require 'go-mode-recipe)
 (require 'scala-mode-recipe)
