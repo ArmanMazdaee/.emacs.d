@@ -1,3 +1,4 @@
+tree-sitter
 straight/*
 !straight/versions
-var
+litter
